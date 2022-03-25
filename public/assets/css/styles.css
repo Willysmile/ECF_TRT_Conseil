@@ -1,0 +1,20 @@
+body {
+    margin:0;
+    padding:0;
+    height: 100%;
+}
+
+.footer-custom {
+    text-align: center;
+    color: #EFF1F3;
+    height: 125px;
+    position: absolute;
+    width: 100%;
+    background-color: #8e8c84;
+    padding-top: 2rem;
+    bottom:0;
+}
+.footer-custom a {
+    color: #DCEDFF;
+    font-weight: 400;
+}
