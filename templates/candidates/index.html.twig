@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil Candidats{% endblock %}
+
+{% block content %}
+    <div class="container w-75">
+        <h1 class="m-4">Annonces disponibles</h1>
+        <div class="row">
+
+            {% for jobAd in jobAds %}
+                <div class="col">
+                    <div class="card border-primary mb-3 " style="max-width: 20rem;">
+                        <div class="card-header">{{ jobAd.title }}</div>
+                        <div class="card-body">
+
+                            <p class="card-text">{{ jobAd.description }}</p>
+                            <hr>
+                            <p class="card-text">Adresse : {{ jobAd.address }} <br>
+                                Code Postal : {{ jobAd.zipcode }}</p>
+
+                            <a href="#" class="btn btn-primary disabled ">Postuler</a>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}
