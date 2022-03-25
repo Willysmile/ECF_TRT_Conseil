@@ -2,18 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\AdminRepository;
+use App\Repository\CandidatesRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-#[ORM\Entity(repositoryClass: AdminRepository::class)]
-#[ORM\Table(name: '`admin`')]
-/**
- * @ORM\Entity
- * @UniqueEntity(fields={"email"},message="Cet email est déja utilisé, merci de bien vouloir en indiquer un autre.")
- */
-class Admin implements UserInterface, PasswordAuthenticatedUserInterface
+#[ORM\Entity(repositoryClass: CandidatesRepository::class)]
+class Candidates implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -24,10 +19,13 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     private $email;
 
     #[ORM\Column(type: 'json')]
-    private $roles = ['ROLE_ADMIN'];
+    private $roles = [];
 
     #[ORM\Column(type: 'string')]
     private $password;
+
+    #[ORM\Column(type: 'boolean')]
+    private $is_validated;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $firstname;
@@ -103,6 +101,18 @@ class Admin implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getIsValidated(): ?bool
+    {
+        return $this->is_validated;
+    }
+
+    public function setIsValidated(bool $is_validated): self
+    {
+        $this->is_validated = $is_validated;
+
+        return $this;
     }
 
     public function getFirstname(): ?string
