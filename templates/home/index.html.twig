@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+    <div class="container w-75">
+
+        <h1 class="my-5">Accueil</h1>
+        <p>Bonjour et bienvenue sur le site de TRT Conseil, votre agence de recrutement spécialisée dans l'hôtellerie et la
+            restauration.
+        </p>
+
+        <div class="row d-flex mx-auto">
+
+            <div class="card col m-5 py-5 text-center " style="width: 15rem;">
+
+                <div class="card-body">
+                    <h5 class="card-title">Connexion</h5>
+                    <p class="card-text">Pour accéder à votre espace personnel, merci de vous connecter.</p>
+                    <a href="{{ path('app_login') }}" class="btn btn-primary">Connexion</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row d-flex justify-content-between">
+
+            <div class="card col-sm-6 mt-5 text-center" style="width: 20rem;">
+
+                <div class="card-body ">
+                    <h5 class="card-title">Inscriptions Candidats</h5>
+                    <p class="card-text">Pour accéder à votre espace candidats, merci de vous inscrire si cela n’est pas déja
+                        fait.</p>
+                    <a href="{{ path('app_registration_candidates') }}" class="btn btn-outline-primary">Inscriptions candidats</a>
+                </div>
+            </div>
+
+
+            <div class="card col-sm-6 mt-5 text-center" style="width: 20rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Inscriptions Recruteurs</h5>
+                    <p class="card-text">Pour accéder à votre espace candidats, merci de vous inscrire si cela n’est pas déja
+                        fait.</p>
+                    <a href="{{ path('app_registration_recruiters') }}" class="btn btn-outline-primary">Inscriptions
+                        Recruteurs</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
