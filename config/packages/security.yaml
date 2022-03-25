@@ -7,6 +7,12 @@ security:
             algorithm: auto
         App\Entity\Candidates:
             algorithm: auto
+        App\Entity\Recruiters:
+            algorithm: auto
+        App\Entity\Consultants:
+            algorithm: auto
+
+
 
 
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
@@ -14,8 +20,10 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\Candidates
+                class: App\Entity\Consultants
                 property: email
+        # used to reload user from session & other features (e.g. switch_user)
+        # used to reload user from session & other features (e.g. switch_user)
         # used to reload user from session & other features (e.g. switch_user)
     firewalls:
         dev:
