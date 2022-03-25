@@ -8,6 +8,12 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: CandidatesRepository::class)]
+/**
+ * @ORM\Entity
+ * @UniqueEntity(fields={"email"},message="Cet email est déja utilisé, merci de vous connecter.")
+ */
+
+
 class Candidates implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -19,13 +25,13 @@ class Candidates implements UserInterface, PasswordAuthenticatedUserInterface
     private $email;
 
     #[ORM\Column(type: 'json')]
-    private $roles = [];
+    private $roles = ['ROLE_CANDIDATE'];
 
     #[ORM\Column(type: 'string')]
     private $password;
 
     #[ORM\Column(type: 'boolean')]
-    private $is_validated;
+    private $is_validated = 0;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $firstname;
