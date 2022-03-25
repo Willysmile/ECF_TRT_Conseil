@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Informations Candidats{% endblock %}
+
+{% block content %}
+
+
+  <div class="container w-50">
+    <h1 class="m-4">Information Candidats</h1>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.firstname) }}
+    {{ form_row(form.lastname) }}
+    {% if fileExist %}
+      <p class="badge bg-info">Vous avez déja un CV d’uploader sur notre plateforme</p>
+
+    {% endif %}
+    {{ form_row(form.CvFilename) }}
+    {{ form_end(form) }}
+
+    <div>
+      <a href="{{ path('app_candidates') }}" class="btn btn-outline-primary m-3">Retour à l’accueil Candidats</a>
+      <a href="{{ path('app_candidates_password') }}" class="btn btn-outline-primary">Modification du mot de passe</a>
+    </div>
+
+
+    {% if notification %}
+      <div class="alert alert-info m-5">{{ notification }}</div>
+    {% endif %}
+
+  </div>
+{% endblock %}
