@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscriptions Candidats{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="m-5">Inscriptions candidats</h1>
+
+    <p>Merci de vous enregistrer pour accéder à ce site.
+      Une fois inscrit, merci de patienter le temps que votre compte soit activé.
+    </p>
+
+    <form method="post" class="m-5">
+      {{ form_start(form) }}
+
+
+      {{ form_errors(form) }}
+
+
+      {{ form_row(form.email) }}
+      {{ form_row(form.password) }}
+
+      {{ form_end(form) }}
+    </form>
+    <p class="text-center mt-5">Vous avez déja un compte ? Merci de vous connecter.<br/>
+      <a href="{{ path('app_login') }}" class="btn btn-outline-info btn-lg mt-2">Connexion</a></p>
+  </div>
+{% endblock %}

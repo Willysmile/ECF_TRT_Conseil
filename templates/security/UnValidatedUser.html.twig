@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscriptions Candidats{% endblock %}
+
+{% block content %}
+  <div class="container w-50 text-center">
+    <h1 class="m-5">Accès en cours de validation</h1>
+
+    <p>Merci de patienter quelques minutes afin que votre compte soit validé par notre équipe.</p>
+
+    <a href="{{ path('app_home') }}" class="btn btn-info btn-lg m-4">Retour à l’accueil</a>
+  </div>
+{% endblock %}
