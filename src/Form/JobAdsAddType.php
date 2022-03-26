@@ -11,7 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 
-class JobAdType extends AbstractType
+class JobAdsAddType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

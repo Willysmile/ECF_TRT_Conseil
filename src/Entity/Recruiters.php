@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RecruitersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -40,6 +42,14 @@ class Recruiters implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string', length: 5, nullable: true)]
     private $zipcode;
+
+    #[ORM\OneToMany(mappedBy: 'recruiters', targetEntity: JobAds::class)]
+    private $JobAds;
+
+    public function __construct()
+    {
+        $this->JobAds = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -155,6 +165,36 @@ class Recruiters implements UserInterface, PasswordAuthenticatedUserInterface
     public function setZipcode(?string $zipcode): self
     {
         $this->zipcode = $zipcode;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, JobAds>
+     */
+    public function getJobAds(): Collection
+    {
+        return $this->JobAds;
+    }
+
+    public function addJobAd(JobAds $jobAd): self
+    {
+        if (!$this->JobAds->contains($jobAd)) {
+            $this->JobAds[] = $jobAd;
+            $jobAd->setRecruiters($this);
+        }
+
+        return $this;
+    }
+
+    public function removeJobAd(JobAds $jobAd): self
+    {
+        if ($this->JobAds->removeElement($jobAd)) {
+            // set the owning side to null (unless already changed)
+            if ($jobAd->getRecruiters() === $this) {
+                $jobAd->setRecruiters(null);
+            }
+        }
 
         return $this;
     }

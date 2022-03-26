@@ -28,6 +28,10 @@ class JobAds
     #[ORM\Column(type: 'boolean')]
     private $is_validated;
 
+    #[ORM\ManyToOne(targetEntity: Recruiters::class, inversedBy: 'JobAds')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $recruiters;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +93,18 @@ class JobAds
     public function setIsValidated(bool $is_validated): self
     {
         $this->is_validated = $is_validated;
+
+        return $this;
+    }
+
+    public function getRecruiters(): ?Recruiters
+    {
+        return $this->recruiters;
+    }
+
+    public function setRecruiters(?Recruiters $recruiters): self
+    {
+        $this->recruiters = $recruiters;
 
         return $this;
     }

@@ -7,6 +7,7 @@ use App\Entity\Recruiters;
 use App\Entity\Consultants;
 use App\Form\CandidatesRegistrationType;
 use App\Form\ConsultantRegistrationType;
+use App\Form\ConsultantsRegistrationType;
 use App\Form\RecruitersRegistrationType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -98,7 +99,7 @@ class SecurityController extends AbstractController
 
         $user3 = new Consultants();
 
-        $form = $this->createForm(ConsultantRegistrationType::class, $user3);
+        $form = $this->createForm(ConsultantsRegistrationType::class, $user3);
 
         $form->handleRequest($request);
 
