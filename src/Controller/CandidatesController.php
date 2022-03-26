@@ -20,7 +20,7 @@ class CandidatesController extends AbstractController
     #[Route('/candidats', name: 'app_candidates')]
     public function index(): Response
     {
-        $jobAds = $this->entityManager->getRepository(JobAds::class)->findBy(['IsValidated' => true]);
+        $jobAds = $this->entityManager->getRepository(JobAds::class)->findBy(['is_validated' => true]);
 
 
         $user = $this->getUser();
