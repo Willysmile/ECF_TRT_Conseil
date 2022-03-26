@@ -25,8 +25,9 @@ class RecruitersCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             BooleanField::new('IsValidated', 'Compte validé'),
-            TextField::new('soicety_name', 'Société'),
+            TextField::new('society_name', 'Société'),
             TextField::new('address', 'Adresse'),
+            TextField::new('zipcode', 'Code Postal'),
             EmailField::new('email'),
             TextField::new('password')->setFormType(PasswordType::class)->hideOnIndex()
         ];
