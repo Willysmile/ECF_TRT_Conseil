@@ -108,4 +108,16 @@ class JobAds
 
         return $this;
     }
+
+    public function getSocietyName(): ?Recruiters
+    {
+        return $this->society_name;
+    }
+
+    public function setSocietyName(?Recruiters $society_name): self
+    {
+        $this->society_name = $society_name;
+
+        return $this;
+    }
 }

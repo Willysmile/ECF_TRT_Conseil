@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\JobAds;
+use App\Entity\Recruiters;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

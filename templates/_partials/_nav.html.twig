@@ -18,6 +18,8 @@
       {% elseif is_granted('ROLE_RECRUITER') %}
 
         <a href="{{ path('app_jobAd') }}" class="btn btn-light p-2 mx-2">Ajout annonces</a>
+
+        <a href="{{ path('app_recruiters_account') }}" class="btn btn-light p-2 mx-2">Mon compte</a>
         <a
             href="{{ path('app_logout') }}" class="btn btn-light p-2 mx-2">Déconnexion</a>
       {% else %}

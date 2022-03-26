@@ -46,9 +46,13 @@ class Recruiters implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'recruiters', targetEntity: JobAds::class)]
     private $JobAds;
 
+    #[ORM\OneToMany(mappedBy: 'society_name', targetEntity: JobAds::class)]
+    private $jobAds;
+
     public function __construct()
     {
         $this->JobAds = new ArrayCollection();
+        $this->jobAds = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -169,33 +173,5 @@ class Recruiters implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, JobAds>
-     */
-    public function getJobAds(): Collection
-    {
-        return $this->JobAds;
-    }
 
-    public function addJobAd(JobAds $jobAd): self
-    {
-        if (!$this->JobAds->contains($jobAd)) {
-            $this->JobAds[] = $jobAd;
-            $jobAd->setRecruiters($this);
-        }
-
-        return $this;
-    }
-
-    public function removeJobAd(JobAds $jobAd): self
-    {
-        if ($this->JobAds->removeElement($jobAd)) {
-            // set the owning side to null (unless already changed)
-            if ($jobAd->getRecruiters() === $this) {
-                $jobAd->setRecruiters(null);
-            }
-        }
-
-        return $this;
-    }
 }

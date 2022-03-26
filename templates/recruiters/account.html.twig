@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Informations Candidats{% endblock %}
+
+{% block content %}
+
+
+  <div class="container w-50">
+    <h1 class="m-4">Information Candidats</h1>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.society_name) }}
+    {{ form_row(form.address) }}
+    {{ form_row(form.zipcode) }}
+
+    {{ form_end(form) }}
+
+    <div>
+      <a href="{{ path('app_candidates') }}" class="btn btn-outline-primary m-3">Retour à l’accueil Recruteurs</a>
+
+    </div>
+
+
+    {% if notification %}
+      <div class="alert alert-info m-5">{{ notification }}</div>
+    {% endif %}
+
+  </div>
+{% endblock %}
