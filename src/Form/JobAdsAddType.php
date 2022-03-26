@@ -19,14 +19,14 @@ class JobAdsAddType extends AbstractType
             ->add('title', TextType::class, [
                 'label' => 'Intitulé du poste',
                 'attr' => [
-                    'placeholder' => "Merci de saisir l'adresse",
+                    'placeholder' => "Merci de saisir l’intitulé du poste",
                     'class' => "form-control m-2",
                     'style' => "width : 50%"
                 ]
             ])
             ->add('description', TextareaType::class, ['label' => 'Intitulé du poste',
                 'attr' => [
-                    'placeholder' => "Merci de saisir l'adresse",
+                    'placeholder' => "Merci de saisir la description du poste",
                     'class' => "form-control m-2",
                     'style' => "width : 50%"]
             ])

@@ -8,16 +8,17 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
-
 #[ORM\Entity(repositoryClass: CandidatesRepository::class)]
 /**
  * @ORM\Entity
  * @UniqueEntity(fields={"email"},message="Cet email est déja utilisé, merci de vous connecter.")
  */
 
-
-class Candidates implements UserInterface, PasswordAuthenticatedUserInterface
+class Candidates implements UserInterface,
+    PasswordAuthenticatedUserInterface
 {
+
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
@@ -33,13 +34,18 @@ class Candidates implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     #[ORM\Column(type: 'boolean')]
-    private $is_validated = 0;
+    private $IsValidated = 0;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $firstname;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $lastname;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $CvFilename;
+
+
 
     public function getId(): ?int
     {
@@ -65,7 +71,7 @@ class Candidates implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -113,12 +119,12 @@ class Candidates implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getIsValidated(): ?bool
     {
-        return $this->is_validated;
+        return $this->IsValidated;
     }
 
-    public function setIsValidated(bool $is_validated): self
+    public function setIsValidated(bool $IsValidated): self
     {
-        $this->is_validated = $is_validated;
+        $this->IsValidated = $IsValidated;
 
         return $this;
     }
@@ -143,6 +149,18 @@ class Candidates implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastname(?string $lastname): self
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getCvFilename(): ?string
+    {
+        return $this->CvFilename;
+    }
+
+    public function setCvFilename(?string $CvFilename): self
+    {
+        $this->CvFilename = $CvFilename;
 
         return $this;
     }

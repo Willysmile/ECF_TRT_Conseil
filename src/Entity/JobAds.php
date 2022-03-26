@@ -26,7 +26,7 @@ class JobAds
     private $zipcode;
 
     #[ORM\Column(type: 'boolean')]
-    private $is_validated;
+    private $is_validated =0;
 
     #[ORM\ManyToOne(targetEntity: Recruiters::class, inversedBy: 'JobAds')]
     #[ORM\JoinColumn(nullable: false)]
