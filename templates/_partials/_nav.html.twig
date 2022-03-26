@@ -8,20 +8,22 @@
     </a>
     <div>
       {% if is_granted('ROLE_CANDIDATE') %}
-        <a href="{{ path('app_candidates') }}" class="btn btn-light p-2 mx-2"> Accueil</a>
+        <a href="{{ path('app_candidates') }}" class="btn btn-light p-2 mx-2">
 
+          Accueil</a>
         <a href="{{ path('app_candidates_account') }}" class="btn btn-light p-2 mx-2">Mon compte</a>
-        <a href="{{ path('app_logout') }}" class="btn btn-light bg-lg p-2 mx-2">Déconnexion</a>
+        <a
+            href="{{ path('app_logout') }}" class="btn btn-light bg-lg p-2 mx-2">Déconnexion</a>
 
       {% elseif is_granted('ROLE_RECRUITER') %}
 
         <a href="{{ path('app_jobAd') }}" class="btn btn-light p-2 mx-2">Ajout annonces</a>
-
-        <a href="{{ path('app_recruiters') }}" class="btn btn-light p-2 mx-2">Accueil</a>
-        <a href="{{ path('app_logout') }}" class="btn btn-light p-2 mx-2">Déconnexion</a>
+        <a
+            href="{{ path('app_logout') }}" class="btn btn-light p-2 mx-2">Déconnexion</a>
       {% else %}
         <a href="{{ path('app_login') }}" class="btn btn-light p-2 mx-2">Connexion</a>
-        <a href="{{ path('app_home') }}" class="btn btn-light p-2 mx-2">Accueil</a>
+        <a
+            href="{{ path('app_home') }}" class="btn btn-light p-2 mx-2">Inscription</a>
       {% endif %}
     </div>
 
