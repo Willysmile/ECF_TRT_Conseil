@@ -6,7 +6,8 @@ use App\Repository\RecruitersRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: RecruitersRepository::class)]
 /**
  * @ORM\Entity
@@ -29,7 +30,7 @@ class Recruiters implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     #[ORM\Column(type: 'boolean')]
-    private $is_validated;
+    private $is_validated = 0;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $society_name;

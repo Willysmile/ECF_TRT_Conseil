@@ -22,7 +22,7 @@ class RecruitersController extends AbstractController
     public function index(): Response
     {
         $user = $this->getUser();
-        $jobAds = $this->entityManager->getRepository(JobAds::class)->findBy(['IsValidated' => true, 'recruiters' => $user]);
+        $jobAds = $this->entityManager->getRepository(JobAds::class)->findBy(['is_validated' => true, 'recruiters' => $user]);
 
 
         if ($user && !$user->getIsValidated()) {
