@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Inscriptions Consultant{% endblock %} -- TRT Conseil, votre agence de recrutement</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Feuilles de styles-->
+  <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+  {% block stylesheets %}        {% endblock %}
+  <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+  <!-- Fichiers JS -->
+  <script href="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
+  {% block javascripts %}        {% endblock %}
+  <script href="{{ asset('assets/js/script.js') }}" defer></script>
+</head>
+<body>
+
+
+
+{% block content %}
+  <div class="container">
+    <h1 class="m-5">Inscriptions des Consultants</h1>
+
+    <p>Merci de bien vouloir enregistrer les consultants
+    </p>
+
+    <form method="post" class="m-5">
+      {{ form_start(form) }}
+
+
+      {{ form_errors(form) }}
+
+
+      {{ form_row(form.email) }}
+      {{ form_row(form.password) }}
+
+      {{ form_end(form) }}
+    </form>
+    <p class="text-center mt-5">Retour au panneau d’administration<br/>
+      <a href="{{ path('admin') }}" class="btn btn-outline-info btn-lg mt-2">Panneau d’administration</a></p>
+  </div>
+{% endblock %}
+</body>
+</html>
