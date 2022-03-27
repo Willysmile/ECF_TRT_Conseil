@@ -24,7 +24,7 @@ class CandidatesCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            BooleanField::new('IsValidated', 'Compte validé')->renderAsSwitch(true),
+            BooleanField::new('IsValidated', 'Compte validé'),
             TextField::new('firstName', 'Prénom'),
             TextField::new('lastName', 'Nom'),
             EmailField::new('email'),

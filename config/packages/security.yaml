@@ -62,10 +62,10 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/admin, roles: [ 'ROLE_ADMIN' ], requires_channel: https }
-        - { path: ^/consultants/admin, roles: ['ROLE_CONSULTANT'], requires_channel: https }
-        - { path: ^/candidats, roles: ['ROLE_CANDIDATE'], requires_channel: https }
-        - { path: ^/recruteurs, roles: ['ROLE_RECRUITER'], requires_channel: https }
+        - { path: ^/admin, roles: [ 'ROLE_ADMIN' ]}
+        - { path: ^/consultants/admin, roles: ['ROLE_CONSULTANT']}
+        - { path: ^/candidats, roles: ['ROLE_CANDIDATE']}
+        - { path: ^/recruteurs, roles: ['ROLE_RECRUITER'] }
 
 when@test:
     security:
