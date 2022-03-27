@@ -13,7 +13,7 @@
           {% endif %}
 
           {% if app.user %}
-            <div class="m-3 badge bg-success">
+            <div class="m-3 p-3 badge bg-info">
               Vous êtes déja authentifié comme {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
             </div>
           {% endif %}
