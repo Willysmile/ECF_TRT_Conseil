@@ -7,6 +7,14 @@
 
     </a>
     <div>
+      {% if app.user %}
+        <div class="m-3 p-3 badge bg-light">
+          Bienvenue {{ app.user.userIdentifier }}
+        </div>
+      {% endif %}
+
+
+
       {% if is_granted('ROLE_CANDIDATE') %}
         <a href="{{ path('app_candidates') }}" class="btn btn-light p-2 mx-2">
 

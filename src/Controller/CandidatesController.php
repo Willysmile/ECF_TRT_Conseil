@@ -48,6 +48,11 @@ class CandidatesController extends AbstractController
     {
 
         $user = $this->getUser();
+        if ($user && !$user->getIsValidated()) {
+            return $this->render('security/UnValidatedUser.html.twig', []);
+        }
+
+
         $form = $this->createForm(CandidatesChangeInfosType::class, $user);
         $notification = null;
         $form->handleRequest($request);
@@ -85,6 +90,11 @@ class CandidatesController extends AbstractController
 
         $notification = null;
         $user = $this->getUser();
+
+        if ($user && !$user->getIsValidated()) {
+            return $this->render('security/UnValidatedUser.html.twig', []);
+        }
+
         $form = $this->createForm(CandidatesChangePasswordType::class, $user);
 
         $form->handleRequest($request);
