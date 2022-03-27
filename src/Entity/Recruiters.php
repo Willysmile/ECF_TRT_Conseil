@@ -46,8 +46,6 @@ class Recruiters implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'recruiters', targetEntity: JobAds::class)]
     private $JobAds;
 
-    #[ORM\OneToMany(mappedBy: 'society_name', targetEntity: JobAds::class)]
-    private $jobAds;
 
     public function __construct()
     {
