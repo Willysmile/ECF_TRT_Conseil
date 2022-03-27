@@ -22,12 +22,15 @@ class JobAdsController extends AbstractController
     #[Route('/recruteurs/annonces', name: 'app_jobAd')]
     public function index(Request $request): Response
     {
+        $user = $this->getUser();
         $jobAd = new JobAds();
         $form = $this->createForm(JobAdsAddType::class, $jobAd);
         $notification = null;
         $form->handleRequest($request);
         $jobAd->setRecruiters($this->getUser());
-
+        if ($user && !$user->getIsValidated()) {
+            return $this->render('security/UnValidatedUser.html.twig', []);
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
 

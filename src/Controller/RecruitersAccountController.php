@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Form\CandidatesChangeInfosType;
+
 use App\Form\RecruitersChangeInfosType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,10 +19,14 @@ class RecruitersAccountController extends AbstractController
     }
 
 
-    #[Route('/recruiters/compte', name: 'app_recruiters_account')]
+    #[Route('/recruters/compte', name: 'app_recruiters_account')]
+
     public function index(Request $request): Response
     {
         $user = $this->getUser();
+        if ($user && !$user->getIsValidated()) {
+            return $this->render('security/UnValidatedUser.html.twig', []);
+        }
         $form = $this->createForm(RecruitersChangeInfosType::class, $user);
 
         $notification = null;
@@ -34,10 +38,6 @@ class RecruitersAccountController extends AbstractController
             $this->entityManager->flush();
             $notification = "Vos informations ont bien étés mises à jour.";
         }
-
-
-
-
 
 
         return $this->render('recruiters/account.html.twig', [
