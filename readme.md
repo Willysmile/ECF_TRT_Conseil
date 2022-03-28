@@ -73,9 +73,12 @@ https://symfony.com/doc/current/setup.html
 
 - Installer la Heroku CLI :
 
-        - Ubuntu : `sudo snap install --classic heroku`
-        - Mac Os : `brew tap heroku/brew && brew install heroku`
-        - Windows : Télécharger le fichier sur [Heroku](https://devcenter.heroku.com/articles/heroku-cli)
+  - Ubuntu : `sudo snap install --classic heroku`
+
+  - Mac Os : `brew tap heroku/brew && brew install heroku`
+
+  - Windows : Télécharger le fichier sur [Heroku.com](https://devcenter.heroku.com/articles/heroku-cli)
+
 
 - Initialiser votre projet avec Git
 
