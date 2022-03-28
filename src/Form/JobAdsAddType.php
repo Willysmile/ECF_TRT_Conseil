@@ -24,7 +24,7 @@ class JobAdsAddType extends AbstractType
                     'style' => "width : 50%"
                 ]
             ])
-            ->add('description', TextareaType::class, ['label' => 'Intitulé du poste',
+            ->add('description', TextareaType::class, ['label' => 'Description du poste',
                 'attr' => [
                     'placeholder' => "Merci de saisir la description du poste",
                     'class' => "form-control m-2",
