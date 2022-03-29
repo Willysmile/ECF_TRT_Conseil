@@ -21,7 +21,7 @@ https://symfony.com/doc/current/setup.html
 
 - Cloner le dépot :
 
-  https://github.com/Willysmile/ECF_TRT_Conseil.git
+  git clone https://github.com/Willysmile/ECF_TRT_Conseil.git
 
 
 - Dupliquer le fichier .env en .env.local
